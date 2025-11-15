@@ -12,9 +12,13 @@ Este repositorio contiene la implementación y análisis de modelos de aprendiza
 
 ## 1. Contexto del Caso
 
-Una plataforma digital de servicios personalizados desea segmentar a sus usuarios con base en datos de navegación, transacciones y comportamiento. El equipo de analítica necesita crear perfiles representativos usando métodos no supervisados para entender mejor el comportamiento y adaptar estrategias de marketing.
+El objetivo de este proyecto es aplicar técnicas de aprendizaje no supervisado para analizar y segmentar patrones de comportamiento en un sistema de archivos distribuido a gran escala (HDFS).
 
-Para este proyecto, simulamos este escenario utilizando el dataset HDFS, donde cada "bloque" (`BlockId`) es un "usuario" y la secuencia de eventos (E1-E29) representa su "comportamiento".
+En la administración de sistemas de Big Data, es crucial monitorear la "salud" del clúster e identificar patrones de operación. Sin embargo, los eventos de log son masivos y, en un escenario real, a menudo no están etiquetados.
+
+El equipo de operaciones o SRE (Site Reliability Engineering) necesita crear perfiles representativos de la actividad del sistema. El objetivo es usar métodos no supervisados para descubrir "perfiles de comportamiento" emergentes. Esto permite diferenciar la operación normal (en sus distintas variantes) de posibles anomalías, fallos o cuellos de botella, sin conocer de antemano las etiquetas.
+
+Para este proyecto, utilizamos el dataset HDFS. En este escenario, cada `BlockId` representa una **entidad de datos** (un bloque) y la secuencia de eventos (E1-E29) asociada a él representa su **historial de operaciones** o "perfil de comportamiento" dentro del sistema.
 
 ## 2. Entorno de Trabajo
 
@@ -23,7 +27,7 @@ Este proyecto fue desarrollado en un entorno de Python 3, utilizando las siguien
 * **pandas:** Para la manipulación y carga de datos.
 * **numpy:** Para operaciones numéricas.
 * **matplotlib & seaborn:** Para la visualización de datos.
-* **scikit-learn:** Para la implementación de los modelos (StandardScaler, KMeans, DBSCAN, PCA, TSNE) y la evaluación (silhouette_score, adjusted_rand_score).
+* **scikit-learn:** Para la implementación de los modelos (StandardScaler, KMeans, DBSCAN, PCA, TSNE) y la evaluación.
 
 El código fuente principal se encuentra en el archivo `HDFS_Clustering.ipynb`.
 
@@ -104,3 +108,79 @@ El análisis de los **5 clusters** de K-Means y los resultados de DBSCAN permiti
 * **Imágenes:** `img/`
 * **Documentación:** `README.md` (este archivo).
 * **Presentación:** (Link a la presentación/video del equipo).
+
+---
+
+## 8. Cómo Ejecutar el Proyecto
+
+Sigue estos pasos para configurar y ejecutar el análisis en tu entorno local.
+
+### 1. Prerrequisitos
+
+* Asegúrate de tener **Python 3.x** instalado en tu sistema.
+* Se recomienda utilizar un entorno virtual (como `venv` o `conda`) para aislar las dependencias del proyecto.
+
+### 2. Configuración del Entorno
+
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/JavierVMC29/maestria-ia-ml-actividad3-grupo2.git
+    ```
+    ```bash
+    cd maestria-ia-ml-actividad3-grupo2
+    ```
+
+2.  **(Opcional pero recomendado) Crea un entorno virtual:**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # En Windows usa: venv\Scripts\activate
+    ```
+
+3.  **Instala las dependencias:**
+    Todas las librerías necesarias están listadas en `requirements.txt`. Instálalas usando pip:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### 3. Configuración del Dataset
+
+1.  **Descarga los datos:** El dataset HDFS debe descargarse desde Kaggle.
+    * **Link de descarga:** [https://www.kaggle.com/datasets/platform934/hdfs-log-dataset?resource=download](https://www.kaggle.com/datasets/platform934/hdfs-log-dataset?resource=download)
+
+2.  **Descomprime y ubica los archivos:**
+    * Descarga el archivo `.zip` desde el enlace de Kaggle.
+    * Descomprímelo. Encontrarás los archivos `Event_occurrence_matrix.csv` y `anomaly_label.csv`.
+    * Crea las carpetas `dataset/preprocessed/` dentro del directorio raíz del proyecto.
+    * Mueve ambos archivos CSV (`Event_occurrence_matrix.csv` y `anomaly_label.csv`) dentro de la carpeta `dataset/preprocessed/`.
+
+### 4. Estructura de Carpetas
+
+Tu directorio de proyecto debería verse así para que el notebook funcione correctamente:
+
+```
+maestria-ia-ml-actividad3-grupo2/
+│
+├── dataset/
+│   └── preprocessed/
+│       ├── Event_occurrence_matrix.csv
+│       └── anomaly_label.csv
+│
+├── img/
+│   ├── data1.png
+│   ├── data2.png
+│   └── ... (otras imágenes)
+│
+├── HDFS_Clustering.ipynb
+├── README.md
+└── requirements.txt
+```
+
+### 5. Ejecutar el Análisis
+
+Una vez que las dependencias estén instaladas y los datos estén en su lugar, puedes ejecutar el análisis directamente en Visual Studio Code:
+
+1.  Abre la carpeta completa del proyecto (`maestria-ia-ml-actividad3-grupo2/`) en VS Code.
+2.  Asegúrate de tener las extensiones de **Python** y **Jupyter** de Microsoft instaladas en VS Code.
+3.  Abre el archivo `HDFS_Clustering.ipynb`.
+4.  VS Code debería detectar automáticamente tu entorno virtual (si lo activaste) o puedes seleccionarlo manualmente (`Ctrl+Shift+P` > "Python: Select Interpreter").
+5.  Ejecuta las celdas de forma secuencial (puedes usar el botón "Ejecutar todo" o ejecutar celda por celda) para replicar el análisis.
