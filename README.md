@@ -42,6 +42,12 @@ Se utilizó el dataset HDFS, compuesto por dos archivos principales ubicados en 
 
 En el **Análisis Exploratorio (EDA)**, unimos estos dos archivos. El análisis de correlación mostró algunas relaciones entre eventos, pero la alta dimensionalidad (29 características) hizo necesaria la reducción de dimensión para la visualización. La distribución de etiquetas mostró un dataset altamente desbalanceado, con muchas más instancias "Normales" que "Anómalas", lo cual es típico en la detección de anomalías.
 
+![output](data1.png)
+![output](data2.png)
+![output](data3.png)
+![output](data4.png)
+![output](data5.png)
+
 ## 4. Implementación de Modelos
 
 El flujo de trabajo de modelado fue el siguiente:
