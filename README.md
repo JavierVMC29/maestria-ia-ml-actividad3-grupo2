@@ -56,6 +56,8 @@ El flujo de trabajo de modelado fue el siguiente:
 
 Se generaron 6 gráficos comparativos clave (ver el Notebook):
 
+![output](output.png)
+
 * **PCA (K-Means vs. DBSCAN vs. Verdad)**: PCA mostró cierta superposición entre los grupos, lo que indica que una separación puramente lineal es difícil.
 * **t-SNE (K-Means vs. DBSCAN vs. Verdad)**: t-SNE mostró una separación de clusters mucho más clara y definida, agrupando los puntos anómalos de manera visualmente distinta a la nube densa de puntos normales.
 
