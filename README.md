@@ -98,5 +98,7 @@ Además, se generaron tablas de resumen (medias por cluster) para interpretar el
 * **Repositorio (Este documento):** Contiene todo el código, datos y análisis.
 * **Código Fuente:** `HDFS_Clustering.ipynb`
 * **Datos:** `dataset/preprocessed/Event_occurrence_matrix.csv` y `dataset/preprocessed/anomaly_label.csv`
+* **Entorno de Trabajo:** `requirements.txt`
+* **Imágenes:** `img/`
 * **Documentación:** `README.md` (este archivo).
 * **Presentación:** (Link a la presentación/video del equipo).
