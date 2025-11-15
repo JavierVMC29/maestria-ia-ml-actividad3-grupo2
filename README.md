@@ -42,11 +42,11 @@ Se utilizó el dataset HDFS, compuesto por dos archivos principales ubicados en 
 
 En el **Análisis Exploratorio (EDA)**, unimos estos dos archivos. El análisis de correlación mostró algunas relaciones entre eventos, pero la alta dimensionalidad (29 características) hizo necesaria la reducción de dimensión para la visualización. La distribución de etiquetas mostró un dataset altamente desbalanceado, con muchas más instancias "Normales" que "Anómalas", lo cual es típico en la detección de anomalías.
 
-![output](data1.png)
-![output](data2.png)
-![output](data3.png)
-![output](data4.png)
-![output](data5.png)
+![output](/img/data1.png)
+![output](/img/data2.png)
+![output](/img/data3.png)
+![output](/img/data4.png)
+![output](/img/data5.png)
 
 ## 4. Implementación de Modelos
 
@@ -62,7 +62,7 @@ El flujo de trabajo de modelado fue el siguiente:
 
 Se generaron 6 gráficos comparativos clave (ver el Notebook):
 
-![output](output.png)
+![output](/img/output.png)
 
 * **PCA (K-Means vs. DBSCAN vs. Verdad)**: PCA mostró cierta superposición entre los grupos, lo que indica que una separación puramente lineal es difícil.
 * **t-SNE (K-Means vs. DBSCAN vs. Verdad)**: t-SNE mostró una separación de clusters mucho más clara y definida, agrupando los puntos anómalos de manera visualmente distinta a la nube densa de puntos normales.
